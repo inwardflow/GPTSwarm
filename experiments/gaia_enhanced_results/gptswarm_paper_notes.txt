@@ -1,0 +1,41 @@
+GPTSwarm Paper GAIA Experiment Notes
+=====================================
+
+From GPTSwarm paper (ICML 2024):
+
+TOOLS MENTIONED:
+- "The framework supports 41 types of file analysis, web search (e.g., Google Search), 
+  and index-based memory."
+- So GPTSwarm framework DOES support file analysis and Google Search
+
+GAIA RESULTS (from paper, Table 1):
+- GPT-3.5: 4.85% avg
+- GPT-4: 6.06% avg
+- GPT-4-Turbo: 9.70% avg
+- AutoGPT: 4.85% avg
+- GPTSwarm: 18.45% avg (30.56% L1, 20.93% L2, 3.85% L3)
+
+KEY INSIGHT:
+The paper mentions GPTSwarm supports "41 types of file analysis" and "Google Search",
+but the OPEN-SOURCE CODE (what we used) only implements:
+- DuckDuckGo search
+- Wikipedia search
+- Basic MCP tools (if configured)
+
+This is a SIGNIFICANT gap between what the paper claims and what the code provides.
+The paper's 18.45% result was likely achieved with the full tool suite including
+Google Search and file analysis, but the open-source code doesn't include these.
+
+OUR EXPERIMENT COMPARISON:
+- We ran the open-source code with only DDG+Wikipedia → 14.5% (WebSearch)
+- This is LOWER than the paper's 18.45% because:
+  1. Different model (gpt-5.1-codex-mini vs GPT-4-Turbo)
+  2. Fewer tools (DDG+Wiki vs Google+file analysis)
+  3. No self-consistency (paper used 5 runs with majority vote)
+
+FOR AGENTGROUP PAPER:
+- Must acknowledge that GPTSwarm's published results used a richer tool suite
+- Our baseline runs are WEAKER than GPTSwarm's published results
+- A fair comparison requires either:
+  a) Equipping all methods with the same comprehensive tool suite, OR
+  b) Only comparing on questions that don't require file processing

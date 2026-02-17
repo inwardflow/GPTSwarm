@@ -1,0 +1,38 @@
+GAIA Leaderboard Key Observations (Feb 2026)
+=============================================
+
+Top systems on GAIA Test Set:
+1. JD Enterprise Intelligence (EI) - 91.69% avg - GPT-5 + o3 + Gemini-2.5-Pro + Claude
+2. openJiuwen-deepagent - 91.69% - GPT5 + Gemini-3-Pro
+3. Lemon (Lenovo) - 91.36% - GPT5 + Gemini-3-pro + o3
+4. JoinAI_V2.2 (CMCC) - 90.7% - GPT 5 + Gemini 3 Pro + DeepSeek 3.1 + Qwen 3
+5. NVIDIA Nemotron-ToolOrchestra - 90.37% - Nemotron-8B + GPT-5 + Claude Opus 4.1 + Qwen2.5-Math-72B
+6. JoinAI_V3 - ~90% - GPT + Gemini + DeepSeek + Qwen
+7. SUT-2 (Suzhou AI) - Self Consistency 35 - ~89%
+8. HALO_V2 (Microsoft) - ~88%
+9. Shi Ren - GPT5.2 + Claude Sonnet 4.5 + Gemini 3 Pro - ~87%
+
+KEY OBSERVATIONS:
+1. ALL top systems use MULTIPLE frontier models (GPT-5, Gemini-3-Pro, Claude Opus 4.1, etc.)
+2. ALL top systems are full agentic systems with comprehensive tool suites
+3. The GAIA benchmark explicitly tests "augmented capabilities" including:
+   - Web browsing and search
+   - File parsing (PDF, Excel, images)
+   - Code execution
+   - Multi-modality handling
+4. GAIA is designed to test the FULL system (model + tools + architecture)
+5. A system with only web search is fundamentally incomplete for GAIA
+
+From GAIA paper description:
+"GAIA is a benchmark for General AI Assistants that requires a set of fundamental abilities 
+such as reasoning, multi-modality handling, web browsing, and tool-use proficiency."
+
+"GAIA is made of more than 450 non-trivial questions with an unambiguous answer, requiring 
+different levels of tooling and autonomy to solve."
+
+IMPLICATIONS FOR AGENTGROUP PAPER:
+- Comparing systems with different tool suites is NOT meaningful on GAIA
+- The benchmark is designed to test the COMPLETE agent system
+- For a fair architecture comparison, tools must be controlled
+- The standard practice on the leaderboard is to use the best available tools
+- GPTSwarm's baseline with only DDG+Wikipedia is severely handicapped

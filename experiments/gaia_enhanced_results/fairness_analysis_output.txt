@@ -1,0 +1,262 @@
+================================================================================
+GAIA BENCHMARK FAIRNESS ANALYSIS
+================================================================================
+
+  OVERALL (all 165 questions) (n=165):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                    22      13.3%
+  WebSearch (DDG+Wiki)                 24      14.5%
+  ToolTOT (DDG+Wiki)                   20      12.1%
+  Best Baseline                        24      14.5%
+  Enhanced ReAct (5 tools)             58      35.2%
+  Δ (Enhanced - Best Baseline)        +34     +20.6pp
+
+================================================================================
+SPLIT BY FILE ATTACHMENT (Fair vs Unfair Comparison)
+================================================================================
+
+--- Questions WITHOUT file attachments ---
+  All strategies have web search; comparison is RELATIVELY FAIR
+  (Still differs in search quality: DDG+Wiki vs Google SerpAPI)
+
+  No File Attachment (n=127):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                    22      17.3%
+  WebSearch (DDG+Wiki)                 23      18.1%
+  ToolTOT (DDG+Wiki)                   20      15.7%
+  Best Baseline                        23      18.1%
+  Enhanced ReAct (5 tools)             41      32.3%
+  Δ (Enhanced - Best Baseline)        +18     +14.2pp
+
+--- Questions WITH file attachments ---
+  Baseline strategies CANNOT process files; comparison is UNFAIR
+  Enhanced ReAct has: PDF reader, Excel parser, image OCR, code execution
+
+  Has File Attachment (n=38):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  1       2.6%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         1       2.6%
+  Enhanced ReAct (5 tools)             17      44.7%
+  Δ (Enhanced - Best Baseline)        +16     +42.1pp
+
+================================================================================
+SPLIT BY FILE TYPE
+================================================================================
+
+  No File (n=127):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                    22      17.3%
+  WebSearch (DDG+Wiki)                 23      18.1%
+  ToolTOT (DDG+Wiki)                   20      15.7%
+  Best Baseline                        23      18.1%
+  Enhanced ReAct (5 tools)             41      32.3%
+  Δ (Enhanced - Best Baseline)        +18     +14.2pp
+
+  File Parsing (PDF/Excel/CSV/DOCX/ZIP/TXT) (n=24):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  0       0.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         0       0.0%
+  Enhanced ReAct (5 tools)             12      50.0%
+  Δ (Enhanced - Best Baseline)        +12     +50.0pp
+
+  Image Understanding (PNG/JPG) (n=10):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  1      10.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         1      10.0%
+  Enhanced ReAct (5 tools)              2      20.0%
+  Δ (Enhanced - Best Baseline)         +1     +10.0pp
+
+  Audio Processing (MP3) (n=3):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  0       0.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         0       0.0%
+  Enhanced ReAct (5 tools)              2      66.7%
+  Δ (Enhanced - Best Baseline)         +2     +66.7pp
+
+  Code Execution (PY) (n=1):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  0       0.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         0       0.0%
+  Enhanced ReAct (5 tools)              1     100.0%
+  Δ (Enhanced - Best Baseline)         +1    +100.0pp
+
+================================================================================
+BY LEVEL × FILE ATTACHMENT
+================================================================================
+
+  Level 1, no file (n=42):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                    12      28.6%
+  WebSearch (DDG+Wiki)                 12      28.6%
+  ToolTOT (DDG+Wiki)                   11      26.2%
+  Best Baseline                        12      28.6%
+  Enhanced ReAct (5 tools)             19      45.2%
+  Δ (Enhanced - Best Baseline)         +7     +16.7pp
+
+  Level 1, has file (n=11):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  0       0.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         0       0.0%
+  Enhanced ReAct (5 tools)              4      36.4%
+  Δ (Enhanced - Best Baseline)         +4     +36.4pp
+
+  Level 2, no file (n=66):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     9      13.6%
+  WebSearch (DDG+Wiki)                 10      15.2%
+  ToolTOT (DDG+Wiki)                    7      10.6%
+  Best Baseline                        10      15.2%
+  Enhanced ReAct (5 tools)             21      31.8%
+  Δ (Enhanced - Best Baseline)        +11     +16.7pp
+
+  Level 2, has file (n=20):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  1       5.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         1       5.0%
+  Enhanced ReAct (5 tools)             12      60.0%
+  Δ (Enhanced - Best Baseline)        +11     +55.0pp
+
+  Level 3, no file (n=19):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     1       5.3%
+  WebSearch (DDG+Wiki)                  1       5.3%
+  ToolTOT (DDG+Wiki)                    2      10.5%
+  Best Baseline                         2      10.5%
+  Enhanced ReAct (5 tools)              1       5.3%
+  Δ (Enhanced - Best Baseline)        +-1     +-5.3pp
+
+  Level 3, has file (n=7):
+  Strategy                        Correct   Accuracy
+  --------------------------------------------------
+  Direct (no tools)                     0       0.0%
+  WebSearch (DDG+Wiki)                  0       0.0%
+  ToolTOT (DDG+Wiki)                    0       0.0%
+  Best Baseline                         0       0.0%
+  Enhanced ReAct (5 tools)              1      14.3%
+  Δ (Enhanced - Best Baseline)         +1     +14.3pp
+
+================================================================================
+IMPROVEMENT DECOMPOSITION
+================================================================================
+
+Overall: Enhanced=35.2%, Best Single Baseline (WebSearch)=14.5%
+Total improvement: +20.6pp
+
+Decomposition:
+  A. Fair subset (no file, n=127, 77% of questions):
+     Enhanced: 41/127 = 32.3%
+     WebSearch: 23/127 = 18.1%
+     Δ = +14.2pp within subset
+     Contribution to overall Δ: +10.9pp
+     → Attributable to: MODEL + ARCHITECTURE + SEARCH QUALITY differences
+
+  B. Unfair subset (has file, n=38, 23% of questions):
+     Enhanced: 17/38 = 44.7%
+     WebSearch: 1/38 = 2.6%
+     Δ = +42.1pp within subset
+     Contribution to overall Δ: +9.7pp
+     → Attributable to: MODEL + ARCHITECTURE + SEARCH QUALITY + TOOL ADVANTAGE
+
+================================================================================
+TOOL AVAILABILITY MATRIX
+================================================================================
+
+                          GPTSwarm Baselines        Enhanced ReAct
+                          (Direct/WebSearch/TOT)     (gpt-4.1-mini)
+  ─────────────────────── ──────────────────────── ──────────────────
+  Web Search              DDG + Wikipedia           Google (SerpAPI)
+  Webpage Content Read    ✗                         ✓ (readability)
+  PDF Parsing             ✗                         ✓ (PyPDF2)
+  Excel/CSV Parsing       ✗                         ✓ (openpyxl/csv)
+  Word Doc Parsing        ✗                         ✓ (python-docx)
+  Image Understanding     ✗                         ✓ (GPT-4.1-mini vision)
+  Audio Transcription     ✗                         ✗
+  Code Execution          ✗                         ✓ (Python sandbox)
+  ZIP Archive Handling    ✗                         ✓
+  ─────────────────────── ──────────────────────── ──────────────────
+  LLM Model               gpt-5.1-codex-mini        gpt-4.1-mini
+  Architecture             3 strategies              Single ReAct agent
+  Max reasoning steps      1-5 LLM calls             12 turns
+
+================================================================================
+CONFOUNDING FACTORS IN CURRENT COMPARISON
+================================================================================
+
+The current experiment has FOUR confounding factors that prevent attributing
+the improvement to any single cause:
+
+  1. TOOL SUITE DIFFERENCE (most impactful for 23% of questions)
+     - Enhanced has file parsing, code execution, image analysis
+     - Baseline has NONE of these
+     - Impact: ~9.7pp of overall improvement comes from file-dependent questions
+
+  2. SEARCH QUALITY DIFFERENCE (affects all questions)
+     - Enhanced uses Google via SerpAPI (high quality, comprehensive)
+     - Baseline uses DuckDuckGo lite + Wikipedia API (lower quality)
+     - Impact: Unknown, but likely significant for factual questions
+
+  3. MODEL DIFFERENCE
+     - Enhanced: gpt-4.1-mini (OpenAI, well-tested)
+     - Baseline: gpt-5.1-codex-mini (custom API endpoint, potentially unstable)
+     - Impact: Unknown, models may differ in reasoning and tool-use capability
+
+  4. ARCHITECTURE DIFFERENCE
+     - Enhanced: ReAct with function calling (12 turns, dynamic tool selection)
+     - Baseline: Fixed pipelines (Direct=1 call, WebSearch=2 calls, TOT=4-5 calls)
+     - Impact: This is what we WANT to measure, but it's confounded by 1-3
+
+FOR A FAIR COMPARISON IN THE AGENTGROUP PAPER:
+  → All methods MUST use the SAME model
+  → All methods MUST have access to the SAME tool suite
+  → All methods MUST use the SAME search engine
+  → Only the ARCHITECTURE should differ (single-agent vs multi-agent, graph structure, etc.)
+
+================================================================================
+REGRESSION ANALYSIS
+================================================================================
+
+  Both correct: 21 questions
+  Enhanced only correct: 37 questions
+  Baseline only correct: 16 questions
+  Neither correct: 91 questions
+
+  Questions where baseline succeeded but Enhanced failed:
+    Level 1, file=False, solved by: T
+    Level 2, file=False, solved by: D+W
+    Level 1, file=False, solved by: W+T
+    Level 2, file=False, solved by: D+W+T
+    Level 2, file=False, solved by: D
+    Level 3, file=False, solved by: T
+    Level 2, file=False, solved by: D+W
+    Level 1, file=False, solved by: D+W+T
+    Level 1, file=False, solved by: D+W
+    Level 1, file=False, solved by: T
+
+Analysis data saved to fairness_analysis_v2.json

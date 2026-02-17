@@ -1,0 +1,42 @@
+KEY FINDINGS FROM FAIRNESS ANALYSIS
+====================================
+
+CRITICAL ISSUE: All three baseline strategies (Direct, WebSearch, ToolTOT) scored 0% accuracy.
+This means the previous "13-14%" results from the earlier report were from a DIFFERENT run 
+(possibly with a different API endpoint or model version that was working).
+
+Current baseline results (gpt-5.1-codex-mini via custom API):
+- Direct: 0/165 = 0.0%
+- WebSearch: 0/165 = 0.0%
+- ToolTOT: 0/165 = 0.0%
+
+This indicates the custom API endpoint (yunyi.rdzhvip.com) was not functioning correctly,
+producing answers that never matched the ground truth in exact-match evaluation.
+
+Enhanced ReAct (gpt-4.1-mini via Manus proxy): 58/165 = 35.2%
+
+DATASET BREAKDOWN:
+- No file attachment: 127 questions (77.0%)
+- File parsing needed: 24 questions (14.5%)
+- Image understanding: 10 questions (6.1%)
+- Audio processing: 3 questions (1.8%)
+- Code files: 1 question (0.6%)
+
+TOOL AVAILABILITY COMPARISON:
+                    Baseline (GPTSwarm)    Enhanced ReAct
+Web Search          DuckDuckGo+Wikipedia   Google (SerpAPI)
+Webpage Reading     NO                     YES (readability)
+File Parsing        NO                     YES (PDF/Excel/CSV/DOCX/ZIP)
+Code Execution      NO                     YES (Python sandbox)
+Image Analysis      NO                     YES (GPT-4.1-mini vision)
+Audio Processing    NO                     NO (not implemented)
+
+FOR AGENTGROUP PAPER:
+The comparison is unfair on TWO dimensions:
+1. Tool availability: 23% of questions require file processing that baselines cannot do
+2. Model quality: gpt-5.1-codex-mini (custom API, possibly broken) vs gpt-4.1-mini (working)
+
+To make a fair comparison for the paper, ALL methods should:
+- Use the SAME model (or at least same-tier models)
+- Have access to the SAME tool suite
+- Only differ in their ARCHITECTURE (single-agent vs multi-agent, graph structure, etc.)

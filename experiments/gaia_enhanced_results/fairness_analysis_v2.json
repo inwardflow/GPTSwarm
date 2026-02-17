@@ -1,0 +1,69 @@
+{
+  "overall": {
+    "enhanced": 58,
+    "direct": 22,
+    "websearch": 24,
+    "tooltot": 20,
+    "total": 165
+  },
+  "no_file": {
+    "enhanced": 41,
+    "direct": 22,
+    "websearch": 23,
+    "tooltot": 20,
+    "total": 127
+  },
+  "has_file": {
+    "enhanced": 17,
+    "direct": 0,
+    "websearch": 1,
+    "tooltot": 0,
+    "total": 38
+  },
+  "by_level_no_file": {
+    "1": {
+      "enhanced": 19,
+      "direct": 12,
+      "websearch": 12,
+      "tooltot": 11,
+      "total": 42
+    },
+    "2": {
+      "enhanced": 21,
+      "direct": 9,
+      "websearch": 10,
+      "tooltot": 7,
+      "total": 66
+    },
+    "3": {
+      "enhanced": 1,
+      "direct": 1,
+      "websearch": 1,
+      "tooltot": 2,
+      "total": 19
+    }
+  },
+  "by_level_has_file": {
+    "1": {
+      "enhanced": 4,
+      "direct": 0,
+      "websearch": 0,
+      "tooltot": 0,
+      "total": 11
+    },
+    "2": {
+      "enhanced": 12,
+      "direct": 0,
+      "websearch": 1,
+      "tooltot": 0,
+      "total": 20
+    },
+    "3": {
+      "enhanced": 1,
+      "direct": 0,
+      "websearch": 0,
+      "tooltot": 0,
+      "total": 7
+    }
+  }
+}

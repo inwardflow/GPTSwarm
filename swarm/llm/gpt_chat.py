@@ -26,6 +26,9 @@ for i in range(10):
     if os.getenv(f"OPENAI_API_KEY{i}"):
         OPENAI_API_KEYS.append(os.getenv(f"OPENAI_API_KEY{i}"))
 
+# Custom base URL support
+CUSTOM_BASE_URL = os.getenv("OPENAI_BASE_URL", None)
+
 
 def gpt_chat(
     model: str,
@@ -44,6 +47,8 @@ def gpt_chat(
     else:
         api_key = random.sample(OPENAI_API_KEYS, 1)[0]
         api_kwargs = dict(api_key=api_key)
+        if CUSTOM_BASE_URL:
+            api_kwargs['base_url'] = CUSTOM_BASE_URL
     client = OpenAI(**api_kwargs)
 
     formated_messages = [asdict(message) for message in messages]
@@ -83,6 +88,8 @@ async def gpt_achat(
     else:
         api_key = random.sample(OPENAI_API_KEYS, 1)[0]
         api_kwargs = dict(api_key=api_key)
+        if CUSTOM_BASE_URL:
+            api_kwargs['base_url'] = CUSTOM_BASE_URL
     aclient = AsyncOpenAI(**api_kwargs)
 
     formated_messages = [asdict(message) for message in messages]

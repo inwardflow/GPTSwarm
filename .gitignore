@@ -195,3 +195,7 @@ datasets/gaia/utils/*.jsonl
 /figures/*.png
 
 .pypirc
+# GAIA dataset attachment files (download separately)
+datasets/gaia/files/
+# Intermediate result files
+result/eval/

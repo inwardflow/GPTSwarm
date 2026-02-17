@@ -9,7 +9,7 @@ from typing import List, Any, Optional
 
 from swarm.llm.format import Message
 from swarm.graph import Node
-from swarm.environment import GoogleSearchEngine, SearchAPIEngine, BingSearchEngine, BoChaSearchEngine
+from swarm.environment import GoogleSearchEngine, SearchAPIEngine, BingSearchEngine, BoChaSearchEngine, MCPWebSearchEngine
 from swarm.utils.log import logger, swarmlog
 from swarm.utils.globals import Cost
 from swarm.environment.prompt.prompt_set_registry import PromptSetRegistry
@@ -43,6 +43,9 @@ class WebSearch(Node):
             return GoogleSearchEngine()
         if os.getenv("BOCHA_API_KEY"):
             return BoChaSearchEngine()
+        # Fallback: use MCP web research engine
+        logger.info("No search API keys found, using MCP Web Search Engine")
+        return MCPWebSearchEngine()
 
     async def _execute(self, inputs: List[Any] = [], max_keywords: int = 5, **kwargs):
 

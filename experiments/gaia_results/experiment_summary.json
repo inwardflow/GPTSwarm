@@ -1,0 +1,85 @@
+{
+  "experiment": "GAIA Full Validation Set (165 Questions)",
+  "model": "gpt-5.1-codex-mini",
+  "api_endpoint": "<configured via .env>",
+  "dataset": "GAIA Benchmark Validation Set",
+  "strategies": {
+    "Direct": {
+      "total": 165,
+      "correct": 22,
+      "accuracy": "13.3%",
+      "avg_time_seconds": "21.2",
+      "total_time_hours": "0.9",
+      "by_level": {
+        "Level_1": {
+          "total": 53,
+          "correct": 12,
+          "accuracy": "22.6%"
+        },
+        "Level_2": {
+          "total": 86,
+          "correct": 9,
+          "accuracy": "10.5%"
+        },
+        "Level_3": {
+          "total": 26,
+          "correct": 1,
+          "accuracy": "3.8%"
+        }
+      }
+    },
+    "WebSearch": {
+      "total": 165,
+      "correct": 24,
+      "accuracy": "14.5%",
+      "avg_time_seconds": "168.0",
+      "total_time_hours": "7.7",
+      "by_level": {
+        "Level_1": {
+          "total": 53,
+          "correct": 12,
+          "accuracy": "22.6%"
+        },
+        "Level_2": {
+          "total": 86,
+          "correct": 11,
+          "accuracy": "12.8%"
+        },
+        "Level_3": {
+          "total": 26,
+          "correct": 1,
+          "accuracy": "3.8%"
+        }
+      }
+    },
+    "ToolTOT": {
+      "total": 165,
+      "correct": 20,
+      "accuracy": "12.1%",
+      "avg_time_seconds": "168.8",
+      "total_time_hours": "7.7",
+      "by_level": {
+        "Level_1": {
+          "total": 53,
+          "correct": 11,
+          "accuracy": "20.8%"
+        },
+        "Level_2": {
+          "total": 86,
+          "correct": 7,
+          "accuracy": "8.1%"
+        },
+        "Level_3": {
+          "total": 26,
+          "correct": 2,
+          "accuracy": "7.7%"
+        }
+      }
+    }
+  },
+  "agreement": {
+    "all_three_correct": 9,
+    "any_correct": 37,
+    "none_correct": 128
+  }
+}
